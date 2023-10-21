@@ -1,27 +1,32 @@
 # inMC
 in-memory cache
 
+Install:
+```
+go get github.com/KA-Ryzhkov/inMC
+```
+
 Example code:
-
-
 `````GO
+package main
+
 import (
-    "fmt"
-    "github.com/KA-Ryzhkov/inMC"
+	"fmt"
+	inmc "github.com/KA-Ryzhkov/inMC"
 )
 
 func main() {
-    cache := New()
+	cache := inmc.New()
 
 	cache.Set("userId", 42)
 	cache.Set("user", "Ivan")
 	userId := cache.Get("userId")
-	user := cache.Get("user")
+	user := cache.Get("userName")
 	fmt.Println(userId)
 	fmt.Println(user)
 
 	cache.Delete("userId")
-	cache.Delete("user")
+	cache.Delete("userName")
 	userId = cache.Get("userId")
 	fmt.Println(userId)
 }
